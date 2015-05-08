@@ -1,0 +1,69 @@
+HOME                    = .
+RANDFILE                = $ENV::HOME/.rnd
+
+[ req ] 
+default_bits		= 4096		# Size of keys 
+default_keyfile		= key.pem	# name of generated keys 
+default_md		= sha512	# message digest algorithm 
+string_mask		= utf8only	# permitted characters 
+distinguished_name	= req_distinguished_name 
+req_extensions		= v3_req 
+
+[ req_distinguished_name ] 
+
+0.organizationName		= Organization Name (company) 
+organizationalUnitName		= Organizational Unit Name (department, division) 
+emailAddress			= Email Address 
+emailAddress_max		= 40 
+localityName			= Locality Name (city, district) 
+stateOrProvinceName		= State or Province Name (full name) 
+countryName			= Country Name (2 letter code) 
+countryName_min			= 2 
+countryName_max			= 2 
+commonName			= Common Name (hostname, IP, or your name) 
+commonName_max			= 64 
+
+# Defaults:
+#0.organizationName_default	= Default ON
+#organizationalUnitName_default	= Default UN
+#localityName_default		= Default LN
+#stateOrProvinceName_default	= Default PN
+#countryName_default		= Default CN
+#emailAddress_default		= Default EA
+
+[ v3_req ] 
+basicConstraints	= CA:FALSE 
+subjectKeyIdentifier	= hash
+keyUsage		= nonRepudiation, digitalSignature, keyEncipherment
+
+[ v3_ca ] 
+basicConstraints	= CA:TRUE 
+subjectKeyIdentifier	= hash 
+authorityKeyIdentifier	= keyid:always,issuer:always 
+
+[ ca ] 
+default_ca = CA_default
+
+[ CA_default ]
+dir			= .
+serial			= $dir/serial 
+database		= $dir/index.txt 
+new_certs_dir		= $dir/newcerts 
+certificate		= $dir/ca.crt 
+private_key		= $dir/private/ca.key 
+default_days		= 730 
+default_md 		= sha512
+preserve		= no 
+email_in_dn		= no 
+nameopt			= default_ca 
+certopt			= default_ca 
+policy			= policy_match 
+
+[ policy_match ] 
+countryName		= match 
+stateOrProvinceName	= match 
+organizationName	= match 
+organizationalUnitName	= optional 
+commonName		= supplied 
+emailAddress		= optional
+
