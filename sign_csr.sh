@@ -13,7 +13,8 @@ else
 	then
 		echo "01" > serial
 	fi
+	SUBJECT_ALT_NAME=$1 \
 	openssl ca \
 		-out ./out/${1}.crt -config ./openssl.cnf \
-		-infiles ./out/${1}.csr
+		-notext -infiles ./out/${1}.csr
 fi

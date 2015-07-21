@@ -23,4 +23,5 @@ It is also possible to uncomment the Defaults (under the `req_distinguished_name
 ### References:
 1. [SSL certs in debian-administration](http://www.debian-administration.org/article/284/Creating_and_Using_a_self_signed__SSL_Certificates_in_debian)
 2. [Installing a SSL cert on Ubuntu](http://askubuntu.com/questions/73287/how-do-i-install-a-root-certificate)
-2. [OpenSSL sample minimal CA app](https://www.openssl.org/docs/apps/ca.html)
+3. [OpenSSL sample minimal CA app](https://www.openssl.org/docs/apps/ca.html)
+4. [OpenSSL Certificate Authority](https://jamielinux.com/docs/openssl-certificate-authority/introduction.html)
