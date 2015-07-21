@@ -9,4 +9,6 @@ else
 	openssl req \
 		-newkey rsa -nodes -keyout ./out/${1}.key \
 		-out ./out/${1}.csr -config ./openssl.cnf
+
+	chmod 600 ./out/${1}.key
 fi
