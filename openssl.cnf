@@ -71,7 +71,7 @@ basicConstraints	= critical,CA:FALSE
 subjectKeyIdentifier	= hash
 keyUsage		= nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment
 extendedKeyUsage	= critical,serverAuth, clientAuth
-subjectAltName		= critical,DNS:${ENV::SUBJECT_ALT_NAME},email:move
+subjectAltName		= critical,DNS:${ENV::SUBJECT_ALT_NAME},DNS:www.${ENV::SUBJECT_ALT_NAME},email:move
 
 
 [ v3_ca ]
