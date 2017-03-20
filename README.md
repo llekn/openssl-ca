@@ -13,10 +13,12 @@ Me too! That's why I've created this simple repo to:
 1. Clone this repo
 2. Run `create_ca_key.sh` to create your root CA certificate and private key. The root CA certificate will be stored on top directory named `ca.crt`, the private key will be stored in `./private/ca.key`. You should call this script only once, as it will overwrite any existing CA key and CA certificate already present on the repo.
 3. Create and sign as many certificates you want, using `create_crt.sh <app_name>`. The key, CSR and certificate generated will be stored as `<app_name>.<key|csr|crt>` in the `out` directory.
-4. Ready! You can use your app-specific keys and certificates on your apps. If you want to trust these certificates you should add `ca.crt` onto your local storage of trusted certificates (copying it to `/usr/local/share/ca-certificates/` and running `update-ca-certificates` on Ubuntu, for example). The nice thing is that what you are really doing is to build your own chain of trust, managed by you.
+4. Ready! You can use your app-specific keys and certificates on your apps. If you want to trust these certificates you should add `./CA/ca.crt` onto your local storage of trusted certificates (copying it to `/usr/local/share/ca-certificates/` and running `update-ca-certificates` on Ubuntu, for example). The nice thing is that what you are really doing is to build your own chain of trust, managed by you.
+
+__Warning__: Adding `ca.crt` to your list of trusted CA means that your PC will trust any certificate signed by `./CA/private/ca.key` . __Keep this key private!!__
 
 ### Being your own CA
-The openssl.conf file manages various defaults for cert creation. I tried to not include insane parameters but you should really look them to check if those match your definition of sanity. 
+The openssl.conf file manages various defaults for cert creation. I tried to not include insane parameters but you should really look them to check if those match your definition of sanity.
 
 It is also possible to uncomment the Defaults (under the `req_distinguished_name` section) if you want to save some keystrokes by pre-completing some boring cert fields.
 
