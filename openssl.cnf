@@ -35,9 +35,9 @@ copy_extensions  = copy                   # Honor extensions requested of us
 
 
 [ req ]
-default_bits       = 4096                 # Size of keys
+default_bits       = 2048                 # Size of keys
 default_keyfile    = key.pem              # name of generated keys
-default_md         = sha512               # message digest algorithm
+default_md         = sha256               # message digest algorithm
 string_mask        = utf8only             # permitted characters
 distinguished_name = req_distinguished_name
 req_extensions     = v3_req
