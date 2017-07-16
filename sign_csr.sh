@@ -16,5 +16,6 @@ else
 	SUBJECT_ALT_NAME=$1 \
 	openssl ca \
 		-out ./out/${1}.crt -config ./openssl.cnf \
-		-notext -infiles ./out/${1}.csr
+		-notext -extensions v3_req \
+		-infiles ./out/${1}.csr
 fi
