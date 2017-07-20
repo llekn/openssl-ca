@@ -7,8 +7,9 @@ then
 else
 	SUBJECT_ALT_NAME=$1 \
 	openssl req \
+		-config ./openssl.cnf \
 		-newkey rsa -nodes -keyout ./out/${1}.key \
-		-out ./out/${1}.csr -config ./openssl.cnf
+		-out ./out/${1}.csr -extensions v3_req
 
 	chmod 600 ./out/${1}.key
 fi
